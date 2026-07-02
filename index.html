@@ -264,7 +264,6 @@ footer{margin-top:28px;text-align:center;font-size:.75rem;color:var(--ink-soft)}
       <tr><td>4주권</td><td>1주차</td><td>2주차</td><td>3주차</td><td>4주차~</td></tr>
       <tr><td>8주권</td><td>~2주차</td><td>~4주차</td><td>~6주차</td><td>7주차~</td></tr>
       <tr><td>12주권</td><td>~3주차</td><td>~6주차</td><td>~9주차</td><td>10주차~</td></tr>
-      <tr><td>20주권</td><td>~5주차</td><td>~10주차</td><td>~16주차</td><td>17주차~</td></tr>
     </table>
     <p style="margin-top:10px">※ 기간 합산(연장 구매) 시: 현재 사용 중인 이용권은 해당 주차 환불율을 적용하고, 아직 시작하지 않은 이용권은 전액 환불 대상으로 계산됩니다.</p>
   </div>
@@ -285,7 +284,6 @@ const CATALOG = {
     {id:'p4',  name:'4주권',        weeks:4,  price:129000},
     {id:'p8',  name:'8주권',        weeks:8,  price:230000},
     {id:'p12', name:'12주권',       weeks:12, price:330000},
-    {id:'p20', name:'20주권',       weeks:20, price:null},
     {id:'f4',  name:'고정석 4주권',  weeks:4,  price:159000},
     {id:'f12', name:'고정석 12주권', weeks:12, price:510000},
   ],
@@ -305,7 +303,6 @@ function refundRate(weeks, w){
     case 4:  return w<=1?70:w<=2?40:w<=3?20:0;
     case 8:  return w<=2?70:w<=4?40:w<=6?20:0;
     case 12: return w<=3?70:w<=6?40:w<=9?20:0;
-    case 20: return w<=5?70:w<=10?40:w<=16?20:0;
     default: return 0;
   }
 }
@@ -316,7 +313,6 @@ function tiers(weeks){
     case 4:  return [{w:1,r:70},{w:1,r:40},{w:1,r:20},{w:1,r:0}];
     case 8:  return [{w:2,r:70},{w:2,r:40},{w:2,r:20},{w:2,r:0}];
     case 12: return [{w:3,r:70},{w:3,r:40},{w:3,r:20},{w:3,r:0}];
-    case 20: return [{w:5,r:70},{w:5,r:40},{w:6,r:20},{w:4,r:0}];
     default: return [];
   }
 }
